@@ -1679,7 +1679,7 @@ static void NBN_ConnectionVector_Grow(NBN_ConnectionVector *vector, unsigned int
 
 static void NBN_ConnectionTable_InsertEntry(NBN_ConnectionTable *table, unsigned int slot, NBN_Connection *conn);
 static void NBN_ConnectionTable_RemoveEntry(NBN_ConnectionTable *table, unsigned int slot);
-static unsigned int NBN_ConnectionTable_Hash(int hash);
+static unsigned int NBN_ConnectionTable_Hash(unsigned int hash);
 static void NBN_ConnectionTable_Grow(NBN_ConnectionTable *table, unsigned int new_capacity);
 
 static NBN_ConnectionTable *NBN_ConnectionTable_Create(void)
@@ -1814,7 +1814,7 @@ static NBN_Connection *NBN_ConnectionTable_Get(NBN_ConnectionTable *table, uint3
     return NULL;
 }
 
-static unsigned int NBN_ConnectionTable_Hash(int hash)
+static unsigned int NBN_ConnectionTable_Hash(unsigned int hash)
 {
     hash = ((hash >> 16) ^ hash) * 0x45d9f3b;
     hash = ((hash >> 16) ^ hash) * 0x45d9f3b;
